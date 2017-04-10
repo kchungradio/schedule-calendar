@@ -5,7 +5,9 @@
   "author": "Tim Phillips <tim@kchungradio.org>",
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
-    "next": "2.0.0-beta.24"
+    "next": "^2.1.0",
+    "react": "^15.5.3",
+    "react-dom": "^15.5.3"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
