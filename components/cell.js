@@ -9,6 +9,13 @@ const EventItem = (event) => {
   return (
     <div className='event' key={id} title={name}>
       {url ? <a href={url} target='_blank'>{eventStr}</a> : eventStr}
+      <style jsx>{`
+        a:hover {
+          background: white;
+          color: red;
+          text-decoration: none;
+        }
+      `}</style>
     </div>
   )
 }
