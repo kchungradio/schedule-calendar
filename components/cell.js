@@ -8,7 +8,7 @@ const EventItem = (event) => {
 
   return (
     <div className='event' key={id} title={name}>
-      {url ? <a href={url}>{eventStr}</a> : eventStr}
+      {url ? <a href={url} target='_blank'>{eventStr}</a> : eventStr}
     </div>
   )
 }
