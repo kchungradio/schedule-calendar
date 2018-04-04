@@ -46,6 +46,14 @@ export default ({ date, events }) => (
         top: 12px;
         left: 2px;
         white-space: nowrap;
+        padding-right: 13px;
+        padding-bottom: 15px;
+      }
+      @media (hover: none), (hover: on-demand) {
+        .events {
+          padding-right: 0px;
+          padding-bottom: 0px;
+        }
       }
     `}</style>
 
