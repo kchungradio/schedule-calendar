@@ -39,11 +39,21 @@ export default class App extends React.Component {
             padding: 0;
             font-size: 13px;
           }
-          a { color: white; cursor: pointer; }
-          a:link { text-decoration: none; }
-          a:visited { text-decoration: none; }
-          a:hover { text-decoration: underline; }
-          a:active { text-decoration: underline; }
+          a {
+            color: white;
+            cursor: pointer;
+          }
+          a:hover {
+            background: white;
+            color: red;
+            text-decoration: none;
+          }
+          a:link {
+            text-decoration: none;
+          }
+          a:visited {
+            text-decoration: none;
+          }
         `}</style>
 
       </div>
