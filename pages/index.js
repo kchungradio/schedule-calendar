@@ -1,7 +1,6 @@
 /* global fetch:false */
 
 import React from 'react'
-import Head from 'next/head'
 import 'isomorphic-fetch'
 
 import Calendar from '../components/calendar'
@@ -21,12 +20,6 @@ export default class App extends React.Component {
   render () {
     return (
       <div>
-
-        <Head>
-          <link rel='stylesheet' type='text/css'
-            href='http://kchungradio.org/css/calendar.css'
-          />
-        </Head>
 
         <Calendar events={this.props.events} />
 
