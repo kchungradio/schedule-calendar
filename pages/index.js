@@ -1,7 +1,5 @@
-/* global fetch:false */
-
 import React from 'react'
-import 'isomorphic-fetch'
+import fetch from 'isomorphic-unfetch'
 
 import Calendar from '../components/calendar'
 
