@@ -23,12 +23,5 @@
     "start": "next start",
     "lint": "eslint .",
     "pretty": "prettier --check **/*.js"
-  },
-  "now": {
-    "alias": "kchungradio-schedule-calendar.now.sh",
-    "env": {
-      "NODE_ENV": "production",
-      "TZ": "America/Los_Angeles"
-    }
   }
 }
