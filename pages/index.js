@@ -1,13 +1,13 @@
+/* eslint-disable react/prop-types */
+
 import React from 'react'
 import fetch from 'isomorphic-unfetch'
 
 import Calendar from '../components/calendar'
 
 export default class App extends React.Component {
-  static async getInitialProps () {
-    const apiUrl = process.env.NODE_ENV !== 'production'
-      ? 'http://localhost:1630'
-      : 'https://kchungradio-schedule-api.now.sh'
+  static async getInitialProps() {
+    const apiUrl = 'https://kchungradio-schedule-api.now.sh'
 
     const res = await fetch(apiUrl)
     const events = await res.json()
@@ -15,10 +15,9 @@ export default class App extends React.Component {
     return { events }
   }
 
-  render () {
+  render() {
     return (
       <div>
-
         <Calendar events={this.props.events} />
 
         <style jsx global>{`
@@ -46,7 +45,6 @@ export default class App extends React.Component {
             text-decoration: none;
           }
         `}</style>
-
       </div>
     )
   }

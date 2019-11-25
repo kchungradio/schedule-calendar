@@ -10,16 +10,19 @@
     "react-dom": "^16.3.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.2",
-    "standard": "^11.0.1"
-  },
-  "standard": {
-    "parser": "babel-eslint"
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.7.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "prettier": "^1.19.1"
   },
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint .",
+    "pretty": "prettier --check **/*.js"
   },
   "now": {
     "alias": "kchungradio-schedule-calendar.now.sh",
