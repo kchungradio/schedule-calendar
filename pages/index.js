@@ -1,9 +1,13 @@
 /* eslint-disable react/prop-types */
 
 import React from 'react'
+import dynamic from 'next/dynamic'
 import fetch from 'isomorphic-unfetch'
 
-import Calendar from '../components/calendar'
+// prevent server side rendering so all dates/times are in user's local time
+const Calendar = dynamic(() => import('../components/calendar'), {
+  ssr: false
+})
 
 export default class App extends React.Component {
   static async getInitialProps() {
