@@ -2,6 +2,7 @@
 
 import React from 'react'
 import dynamic from 'next/dynamic'
+import Head from 'next/head'
 import fetch from 'isomorphic-unfetch'
 
 // prevent server side rendering so all dates/times are in user's local time
@@ -22,6 +23,10 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
+        <Head>
+          <base target="_parent" />
+        </Head>
+
         <Calendar events={this.props.events} />
 
         <style jsx global>{`
