@@ -4,19 +4,13 @@ import React from 'react'
 
 import formatAMPM from '../lib/format-ampm'
 
-const EventItem = event => {
-  const { id, name, start, url } = event
+const EventItem = ({ event }) => {
+  const { name, start, url } = event
   const eventStr = `${formatAMPM(start)} ${name}`
 
   return (
-    <div className="event" key={id} title={name}>
-      {url ? (
-        <a href={url} target="_blank" rel="noopener noreferrer">
-          {eventStr}
-        </a>
-      ) : (
-        eventStr
-      )}
+    <div className="event" title={name}>
+      {url ? <a href={url}>{eventStr}</a> : eventStr}
     </div>
   )
 }
@@ -26,7 +20,11 @@ export default function Cell({ date, events }) {
     <div className="cell">
       <div className="date">{date}</div>
 
-      <div className="events">{events.map(event => EventItem(event))}</div>
+      <div className="events">
+        {events.map(event => (
+          <EventItem key={event.id} event={event} />
+        ))}
+      </div>
 
       <style jsx>{`
         .cell {
