@@ -6,13 +6,6 @@ import Cell from './cell'
 
 export default function Calendar({ events }) {
   const now = new Date()
-  // const year = now.getFullYear()
-  // const month = now.getMonth() + 1
-  const daysInMonth = new Date(
-    now.getFullYear(),
-    now.getMonth() + 1,
-    0
-  ).getDate()
   const firstDay = new Date(now.getFullYear(), now.getMonth(), 1)
   let blankDays = firstDay.getDay()
   const days = [
@@ -25,16 +18,14 @@ export default function Calendar({ events }) {
     'saturday'
   ]
 
-  const monthOfEvents = [...Array(daysInMonth)].map((x, i) => {
-    let eventsInMonth = events
-      .filter(event => i + 1 === new Date(event.start).getDate())
-      .sort((a, b) => new Date(a.start) - new Date(b.start))
-
-    return {
-      date: i + 1,
-      events: eventsInMonth
-    }
-  })
+  const monthOfEvents = events
+    .sort((a, b) => new Date(a.start) - new Date(b.start))
+    .reduce((acc, event) => {
+      const dayOfMonth = new Date(event.start).getDate()
+      acc[dayOfMonth - 1] = acc[dayOfMonth - 1] || []
+      acc[dayOfMonth - 1].push(event)
+      return acc
+    }, [])
 
   return (
     <div className="calendar">
@@ -51,8 +42,8 @@ export default function Calendar({ events }) {
           <div key={i} className="blank" />
         ))}
 
-        {monthOfEvents.map(day => (
-          <Cell key={day.date} date={day.date} events={day.events} />
+        {monthOfEvents.map((events, idx) => (
+          <Cell key={idx} date={idx + 1} events={events} />
         ))}
       </div>
 
